@@ -3,18 +3,18 @@ const ai = require("../integrations/ai")
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('prompt')
+		.setName('mood-to-color')
 		.setDescription('call chatgpt ai!')
 		.addStringOption(option =>
 			option.setName('input')
-				.setDescription('The input to echo back')
+				.setDescription('The input of your prompt')
 				// Ensure the text will fit in an embed description, if the user chooses that option
 				.setRequired(true)),
 	async execute(interaction) {
 		const prompt = interaction.options.getString('input')
 		await interaction.reply('working on it');
 		//await the response of api
-		const result = await ai.ask(prompt)
+		const result = await ai.color(prompt)
 		await interaction.followUp(result);
 	},
 };
