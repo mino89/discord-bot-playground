@@ -14,7 +14,6 @@ module.exports = {
 		const prompt = interaction.options.getString('input')
 		await interaction.deferReply({ ephemeral: true });
 		//await the response of api
-		await wait(4000);
 		try{
 			const result = await ai.ask(prompt)
 			await interaction.editReply(result);
