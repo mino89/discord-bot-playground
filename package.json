@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
+    "dev": "nodemon --require dotenv/config index.js",
     "deploy-commands": "node deploy-commands.js"
   },
   "keywords": [],
