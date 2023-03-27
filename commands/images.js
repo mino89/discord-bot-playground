@@ -12,10 +12,11 @@ module.exports = {
 				.setRequired(true)),
 	async execute(interaction) {
 		const prompt = interaction.options.getString('input')
-		await interaction.reply('working on it');
+		await interaction.deferReply({ ephemeral: true });
 		//await the response of api
-		const result = await ai.image(prompt)
+		await wait(4000);
 		try{
+			const result = await ai.image(prompt)
 			await interaction.editReply(result);
 		}catch (error){
 			console.log(error)
