@@ -15,6 +15,11 @@ module.exports = {
 		await interaction.reply('working on it');
 		//await the response of api
 		const result = await ai.ask(prompt)
-		await interaction.followUp(result);
+		try{
+			await interaction.editReply(result);
+		}catch (error){
+			console.log(error)
+		}
+		
 	},
 };
